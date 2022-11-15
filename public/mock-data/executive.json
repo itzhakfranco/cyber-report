@@ -1,0 +1,60 @@
+{
+	"executiveData": {
+		"name": "delete test",
+		"description:": "d",
+		"type:": "Penetration Testing (Black Box)",
+		"time&Duration": "Aug 03 2022 12:00 - Aug 04 2022 12:01, 24:01",
+		"includeIPRange": ["192.168.2.1"],
+		"userInput": "1 - Network Rescan(s)",
+		"resilienceScoreCard": [
+			{
+				"score": 85,
+				"title": "Critical Assets",
+				"id": "criticalAssets",
+				"description": "Congratulations! Pentera wasn’t able to take over your accounts and credentials"
+			},
+			{
+				"score": 78,
+				"title": "Credentials and Account Takeover",
+				"id": "credentialSandAccountTakeover",
+				"description": "Congratulations! Pentera wasn’t able to take over your accounts and credentials"
+			},
+			{
+				"score": 46,
+				"title": "Sniffing",
+				"id": "sniffing",
+				"description": "Sniffing is unavailable as Pentera and the network under test are not in the same broadcast domain"
+			},
+			 {
+				"score": -1,
+				"title": "Password Strength",
+				"id": "passwordStrength",
+				"description": "Congratulations! Pentera wasn't able to crack weak passwords in your network"
+			},
+			{
+				"score": -1,
+				"title": "Lateral Movement",
+				"id": "lateralMovement",
+				"description": "Unsupported as no Remote Code Execution actions were approved on any host"
+			},
+			{
+				"score": 14,
+				"title": "Accessible Data",
+				"id": "accessibleData",
+				"description": "Congratulations! Pentera wasn’t able to access any of your data"
+			},
+			{
+				"score": -1,
+				"title": "Host Takeover",
+				"id": "hostTakeover",
+				"description": "None of the critical assets are a part of the target IP addresses (except web applications)"
+			},
+			{
+				"score": -1,
+				"title": "AV/EDR Bypass",
+				"id": "AV/EDRBypass",
+				"description": "Unsupported as no Remote Code Execution actions were approved on any host"
+			}
+		]
+	}
+}

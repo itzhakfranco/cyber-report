@@ -1,0 +1,109 @@
+{
+	"testingScenarioData": [
+		{
+			"_id": "5c9b1b9b0f5ae10541a5d3f5",
+			"groupName": "Info",
+			"groupData": [
+				{
+					"key": "Name",
+					"values": "delete test"
+				},
+				{
+					"key": "Description",
+					"values": "d"
+				},
+				{
+					"key": "Type",
+					"values": "Penetration Testing (Black Box)"
+				},
+				{
+					"key": "Scheduling",
+					"values": "Weekly on WEDNESDAY at Wed Jul 20 2022 12:00:00 GMT+0000 (Asia/Jerusalem)"
+				},
+				{
+					"key": "Created By",
+					"values": ""
+				}
+			]
+		},
+		{
+			"_id": "8c9b1b9b7f5ae12541a5d3d5",
+			"groupName": "Summary",
+			"groupData": [
+				{
+					"key": "Completion Status",
+					"values": "Completed successfully"
+				},
+				{
+					"key": "Time & Duration",
+					"values": "Aug 03 2022 12:00 - Aug 04 2022 12:01, 24:01"
+				},
+				{
+					"key": "Testing Scenario Cycles",
+					"values": "3"
+				},
+				{
+					"key": "Action Approval Score ",
+					"values": "0 / 0 , 0%, low action approval score"
+				}
+			]
+		},
+		{
+			"_id": "5c9b1b9b0f5at11711a2d9f5",
+			"groupName": "Ranges",
+			"groupData": [
+				{
+					"key": "include IP Range(s)",
+					"values": "192.168.2.1"
+				}
+			]
+		},
+		{
+			"_id": "3c4b1b9b0f5jo38541a9d3f3",
+			"groupName": "Intensity",
+			"groupData": [
+				{
+					"key": "Maximum Duration",
+					"values": "01d:00h:00m"
+				},
+				{
+					"key": "Spoofing Duration",
+					"values": "01d:00h:00m"
+				},
+				{
+					"key": "Perform Automatic Rescan",
+					"values": "00d:12h:00m"
+				},
+				{
+					"key": "Stealthiness Level",
+					"values": "(4) Normal discovery, common Windows & Linux services enumeration (default)"
+				}
+			]
+		},
+		{
+			"_id": "5c9b1b9b0f5ae10001a5d3f5",
+			"groupName": "Exploitation Settings",
+			"groupData": [
+				{
+					"key": "Basic",
+					"values": [
+						"Allow Exploits - Require Approval for Exploits",
+						"Allow Out of IP Range Spoofing",
+						"Require Approval",
+						"Allow Web Application Bruteforce (always requires approval)"
+					]
+				},
+				{
+					"key": "Advanced",
+					"values": [
+						"Allow Automatic Active Directory Account Creation, Relay Attacks",
+						"Allow Automatic Credentials Dump Relay Attacks",
+						"Allow Automatic ‘Printer Bug’ Relay Attacks",
+						"Allow Automatic Active Directory Controller(s) Identification And Queries",
+						"Allow out of range discovery of Azure Cloud Virtual Machines"
+					]
+				}
+			]
+		}
+	]
+}
