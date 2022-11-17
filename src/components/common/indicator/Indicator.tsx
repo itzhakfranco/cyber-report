@@ -1,5 +1,5 @@
 import React from "react";
-import { IPropsIndicator } from "ts/types/report.types";
+import { IPropsIndicator } from "ts/types/components-props.types";
 import { IndicatorStyled } from "./Indicator.styled";
 
 const Indicator: React.FC<IPropsIndicator> = ({ score }) => {

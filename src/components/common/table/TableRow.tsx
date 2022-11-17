@@ -1,5 +1,5 @@
 import React from "react";
-import { IPropsTableRow } from "ts/types/report.types";
+import { IPropsTableRow } from "ts/types/components-props.types";
 import { TableRowStyle } from "./Table.styled";
 
 const TableRow: React.FC<IPropsTableRow> = ({ children }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { IPropsDragTableColumn } from "ts/types/report.types";
+import { IPropsDragTableColumn } from "ts/types/components-props.types";
 import { DragTableColumnStyled } from "./DragTable.styled";
 
 const DragTableColumn: React.FC<IPropsDragTableColumn> = ({
