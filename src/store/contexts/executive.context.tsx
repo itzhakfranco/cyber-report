@@ -11,7 +11,9 @@ const defaultState: IReportContext = {
 	error: null,
 };
 
-export const ExecutiveContext = createContext<any>(defaultState);
+export const ExecutiveContext = createContext<IReportContext>(
+	defaultState as IReportContext
+);
 ExecutiveContext.displayName = ReportName.EXECUTIVE;
 
 export function ExecutiveProvider({ children }) {

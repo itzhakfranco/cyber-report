@@ -10,7 +10,9 @@ const defaultState: IReportContext = {
 	data: [],
 	error: null,
 };
-const TestingScenarioContext = createContext<any>(defaultState);
+const TestingScenarioContext = createContext<IReportContext>(
+	defaultState as IReportContext
+);
 TestingScenarioContext.displayName = ReportName.TESTING_SCENARIO;
 
 function TestingScenarioProvider({ children }) {

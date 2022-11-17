@@ -10,7 +10,9 @@ const defaultState: IReportContext = {
 	data: [],
 	error: null,
 };
-const MitreMatrixContext = createContext<any>(defaultState);
+const MitreMatrixContext = createContext<IReportContext>(
+	defaultState as IReportContext
+);
 MitreMatrixContext.displayName = ReportName.MITRE_MATRIX;
 
 function MitreMatrixProvider({ children }) {

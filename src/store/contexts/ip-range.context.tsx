@@ -10,7 +10,9 @@ const defaultState: IReportContext = {
 	data: [],
 	error: null,
 };
-const IPRangeContext = createContext<any>(defaultState);
+const IPRangeContext = createContext<IReportContext>(
+	defaultState as IReportContext
+);
 IPRangeContext.displayName = ReportName.IPRange;
 
 function IPProvider({ children }) {
