@@ -1,5 +1,5 @@
 import React from "react";
-import { IPropsTableBody } from "ts/interfaces/Report.interface";
+import { IPropsTableBody } from "ts/types/report.types";
 import { TableBodyStyle } from "./Table.styled";
 
 const TableBody: React.FC<IPropsTableBody> = ({ children }) => {

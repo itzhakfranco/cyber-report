@@ -1,18 +1,22 @@
 import { useReducer, useEffect, useMemo, createContext } from "react";
 
-import { TestingScenarioContextProps } from "ts/types/report.types";
+import {
+	TestingScenarioContextProps,
+	TestingScenarioState,
+} from "ts/types/report.types";
 import { ReportName, Status } from "ts/enums/Report.enum";
-import { IReportContext } from "ts/interfaces/Report.interface";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";
 
-const defaultState: IReportContext = {
+const defaultState: TestingScenarioState = {
 	status: Status.idle,
-	data: [],
+	data: {
+		testingScenarioData: [],
+	},
 	error: null,
 };
-const TestingScenarioContext = createContext<IReportContext>(
-	defaultState as IReportContext
+const TestingScenarioContext = createContext<TestingScenarioState>(
+	defaultState as TestingScenarioState
 );
 TestingScenarioContext.displayName = ReportName.TESTING_SCENARIO;
 

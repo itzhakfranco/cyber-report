@@ -7,13 +7,13 @@ import {
 	Box,
 	Divider,
 } from "@mui/material";
-import * as Layout from "components/layout/Layout.styled";
+import { Row } from "components/layout/Layout.styled";
 import ImageIcon from "@mui/icons-material/Image";
 import Indicator from "components/common/indicator/Indicator";
 
 const ResilienceScoreSummary = () => {
 	return (
-		<Layout.Row>
+		<Row>
 			<List>
 				<ListItem>
 					<ListItemAvatar>
@@ -61,7 +61,7 @@ const ResilienceScoreSummary = () => {
 					</Box>
 				</ListItem>
 			</List>
-		</Layout.Row>
+		</Row>
 	);
 };
 
