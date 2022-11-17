@@ -1,5 +1,5 @@
 import React from "react";
-import { IPropsTableHead } from "ts/interfaces/Report.interface";
+import { IPropsTableHead } from "ts/types/report.types";
 import { TableHeadStyle } from "./Table.styled";
 
 const TableHead: React.FC<IPropsTableHead> = ({ children }) => {

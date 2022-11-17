@@ -1,19 +1,26 @@
 import { useReducer, useEffect, useMemo, createContext } from "react";
 
+import {
+	MitreMatrixContextProps,
+	MitreMatrixState,
+} from "ts/types/report.types";
 import { ReportName, Status } from "ts/enums/Report.enum";
-import { IReportContext } from "ts/interfaces/Report.interface";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";
 
-const defaultState: IReportContext = {
+const defaultState: MitreMatrixState = {
 	status: Status.idle,
-	data: [],
+	data: {
+		mitreMatrixData: [],
+	},
 	error: null,
 };
-const MitreMatrixContext = createContext<any>(defaultState);
+const MitreMatrixContext = createContext<MitreMatrixState>(
+	defaultState as MitreMatrixState
+);
 MitreMatrixContext.displayName = ReportName.MITRE_MATRIX;
 
-function MitreMatrixProvider({ children }) {
+function MitreMatrixProvider({ children }: MitreMatrixContextProps) {
 	const [state, dispatch] = useReducer(reportReducer, defaultState);
 
 	useEffect(() => {

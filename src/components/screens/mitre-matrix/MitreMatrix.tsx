@@ -1,30 +1,29 @@
 import React from "react";
-import useMitreMatrix from "hooks/useMitreMatrix";
-import { Status } from "ts/enums/Report.enum";
+
 import { MitreMatrixStyled } from "./MitreMatrix.styled";
 import ScreenTemplate from "components/templates/screen-template/ScreenTemplate";
 import DragTableContainer from "components/common/drag-table/DragTableContainer";
 import DragTableColumn from "components/common/drag-table/DragTableColumn";
 import DragItem from "components/common/drag-table/DragItem";
 import PageHeader from "components/common/page-header/PageHeader";
+import useMitreMatrix from "hooks/useMitreMatrix";
 
 const MitreMatrix: React.FC = () => {
-	const { status, data, error } = useMitreMatrix();
-
-	if (status === Status.pending || status === Status.idle)
-		return <h1>Loading</h1>;
+	const {
+		data: { mitreMatrixData },
+	} = useMitreMatrix();
 
 	return (
 		<ScreenTemplate>
 			<MitreMatrixStyled>
 				<PageHeader>MITRE ATT&CK Matrix for Enterprise - Heat Map</PageHeader>
 				<DragTableContainer>
-					{data?.mitreMatrixData?.map((mMatrix) => (
+					{mitreMatrixData.map((mMatrix) => (
 						<DragTableColumn
 							key={mMatrix._id}
 							colName={mMatrix.mitreMatrixName}
 						>
-							{mMatrix?.mitreMatrixList?.map((matrixItem) => (
+							{mMatrix.mitreMatrixList.map((matrixItem) => (
 								<DragItem
 									key={matrixItem.id}
 									taskName={matrixItem.taskName}

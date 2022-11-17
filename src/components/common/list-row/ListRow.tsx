@@ -1,4 +1,4 @@
-import { IPropsListRow } from "ts/interfaces/Report.interface";
+import { IPropsListRow } from "ts/types/report.types";
 import React from "react";
 import { ListRowStyle, RowStyle } from "./ListRow.styled";
 
