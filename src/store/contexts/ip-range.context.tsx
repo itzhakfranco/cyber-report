@@ -1,5 +1,6 @@
 import { useReducer, useMemo, createContext, useEffect } from "react";
 
+import { IPRangeContextProps } from "ts/types/report.types";
 import { ReportName, Status } from "ts/enums/Report.enum";
 import { IReportContext } from "ts/interfaces/Report.interface";
 import { reportReducer } from "store/reducers/report.reducer";
@@ -15,7 +16,7 @@ const IPRangeContext = createContext<IReportContext>(
 );
 IPRangeContext.displayName = ReportName.IPRange;
 
-function IPProvider({ children }) {
+function IPProvider({ children }: IPRangeContextProps) {
 	const [state, dispatch] = useReducer(reportReducer, defaultState);
 
 	useEffect(() => {

@@ -1,5 +1,6 @@
 import { useReducer, useEffect, useMemo, createContext } from "react";
 
+import { TestingScenarioContextProps } from "ts/types/report.types";
 import { ReportName, Status } from "ts/enums/Report.enum";
 import { IReportContext } from "ts/interfaces/Report.interface";
 import { reportReducer } from "store/reducers/report.reducer";
@@ -15,7 +16,7 @@ const TestingScenarioContext = createContext<IReportContext>(
 );
 TestingScenarioContext.displayName = ReportName.TESTING_SCENARIO;
 
-function TestingScenarioProvider({ children }) {
+function TestingScenarioProvider({ children }: TestingScenarioContextProps) {
 	const [state, dispatch] = useReducer(reportReducer, defaultState);
 
 	useEffect(() => {
