@@ -3,7 +3,7 @@
 		"name": "delete test",
 		"description:": "d",
 		"type:": "Penetration Testing (Black Box)",
-		"time&Duration": "Aug 03 2022 12:00 - Aug 04 2022 12:01, 24:01",
+		"timeDuration": "Aug 03 2022 12:00 - Aug 04 2022 12:01, 24:01",
 		"includeIPRange": ["192.168.2.1"],
 		"userInput": "1 - Network Rescan(s)",
 		"resilienceScoreCard": [
@@ -25,7 +25,7 @@
 				"id": "sniffing",
 				"description": "Sniffing is unavailable as Pentera and the network under test are not in the same broadcast domain"
 			},
-			 {
+			{
 				"score": -1,
 				"title": "Password Strength",
 				"id": "passwordStrength",

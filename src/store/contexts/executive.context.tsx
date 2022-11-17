@@ -1,20 +1,29 @@
 import { useReducer, useEffect, useMemo, createContext } from "react";
 
+import { ExecutiveContextProps, ExecutiveState } from "ts/types/report.types";
 import { ReportName, Status } from "ts/enums/Report.enum";
-import { IReportContext } from "ts/interfaces/Report.interface";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";
 
-const defaultState: IReportContext = {
-	status: Status.idle,
-	data: [],
+const defaultState: ExecutiveState = {
 	error: null,
+	status: Status.idle,
+	data: {
+		name: "",
+		description: "",
+		type: "",
+		timeDuration: "",
+		userInput: "",
+		resilienceScoreCard: [],
+	},
 };
 
-export const ExecutiveContext = createContext<any>(defaultState);
+export const ExecutiveContext = createContext<ExecutiveState>(
+	defaultState as ExecutiveState
+);
 ExecutiveContext.displayName = ReportName.EXECUTIVE;
 
-export function ExecutiveProvider({ children }) {
+export function ExecutiveProvider({ children }: ExecutiveContextProps) {
 	const [state, dispatch] = useReducer(reportReducer, defaultState);
 
 	useEffect(() => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TestingScenarioStyled } from "./TestingScenario.styled";
 import Table from "components/common/table/Table";
 import TableHead from "components/common/table/TableHead";
@@ -16,11 +16,11 @@ const TestingScenario: React.FC = () => {
 	const {
 		status,
 		data: { testingScenarioData },
-		error,
 	} = useTestingScenario();
 
 	if (status === Status.pending || status === Status.idle)
 		return <h1>Loading</h1>;
+
 	return (
 		<ScreenTemplate>
 			<TestingScenarioStyled>
