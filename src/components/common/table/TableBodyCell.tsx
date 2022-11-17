@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IPropsTableBodyCell } from "ts/types/report.types";
+import { IPropsTableBodyCell } from "ts/types/components-props.types";
 import { TableBodyCellStyle } from "./Table.styled";
 
 const TableBodyCell: React.FC<IPropsTableBodyCell> = ({ children }) => {

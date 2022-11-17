@@ -1,4 +1,4 @@
-import { IPropsPageHeader } from "ts/types/report.types";
+import { IPropsPageHeader } from "ts/types/components-props.types";
 import React from "react";
 import { PageHeaderStyle } from "./PageHeader.styled";
 
