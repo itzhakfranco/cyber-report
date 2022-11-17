@@ -1,5 +1,5 @@
 import React from "react";
-import { IPropsDragItem } from "ts/types/report.types";
+import { IPropsDragItem } from "ts/types/components-props.types";
 import { DragItemStyled } from "./DragTable.styled";
 
 const DragItem: React.FC<IPropsDragItem> = ({

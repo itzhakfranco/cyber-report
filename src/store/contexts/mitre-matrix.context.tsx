@@ -3,7 +3,7 @@ import { useReducer, useEffect, useMemo, createContext } from "react";
 import {
 	MitreMatrixContextProps,
 	MitreMatrixState,
-} from "ts/types/report.types";
+} from "ts/types/mitre-matrix.types";
 import { ReportName, Status } from "ts/enums/Report.enum";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";

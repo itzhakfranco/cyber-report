@@ -1,6 +1,9 @@
 import { useReducer, useEffect, useMemo, createContext } from "react";
 
-import { ExecutiveContextProps, ExecutiveState } from "ts/types/report.types";
+import {
+	ExecutiveContextProps,
+	ExecutiveState,
+} from "ts/types/executive.types";
 import { ReportName, Status } from "ts/enums/Report.enum";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";

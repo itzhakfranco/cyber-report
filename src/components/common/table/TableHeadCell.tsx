@@ -1,5 +1,5 @@
 import React from "react";
-import { IPropsTableHeadCell } from "ts/types/report.types";
+import { IPropsTableHeadCell } from "ts/types/components-props.types";
 import { TableHeadCellStyle } from "./Table.styled";
 
 const TableHeadCell: React.FC<IPropsTableHeadCell> = ({ children }) => {

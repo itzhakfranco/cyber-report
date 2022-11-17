@@ -1,7 +1,7 @@
 import { useReducer, useMemo, createContext, useEffect } from "react";
 
 import { ReportName, Status } from "ts/enums/Report.enum";
-import { IPRangeContextProps, IPRangeState } from "ts/types/report.types";
+import { IPRangeContextProps, IPRangeState } from "ts/types/ip-range.types";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";
 
