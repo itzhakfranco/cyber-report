@@ -1,15 +1,15 @@
-import { ReportActions, Status } from "ts/enums/Report.enum";
+import { ReportActions } from "ts/enums/Report.enum";
 
 function reportReducer(state, action) {
 	switch (action.type) {
-		case ReportActions.FETCH_REPORT: {
-			return { ...state, status: Status.pending };
+		case ReportActions.SET_LOADING: {
+			return { ...state, isLoading: action.payload };
 		}
-		case ReportActions.FETCH_SUCCESS: {
-			return { ...state, data: action.payload, status: Status.resolved };
+		case ReportActions.RESPONSE_COMPLETE: {
+			return { ...state, data: action.payload };
 		}
-		case ReportActions.FETCH_FAILURE: {
-			return { ...state, status: "rejected", payload: Status.rejected };
+		case ReportActions.RESPONSE_REJECTED: {
+			return { ...state, error: action.payload };
 		}
 		default: {
 			return state;

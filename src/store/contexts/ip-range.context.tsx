@@ -1,6 +1,6 @@
 import { useReducer, useMemo, createContext, useEffect } from "react";
 
-import { ReportName, Status } from "ts/enums/Report.enum";
+import { ReportName } from "ts/enums/Report.enum";
 import { IPRangeContextProps, IPRangeState } from "ts/types/ip-range.types";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";
@@ -9,7 +9,7 @@ const defaultState: IPRangeState = {
 	data: {
 		ipRangeData: [],
 	},
-	status: Status.idle,
+	isLoading: true,
 	error: null,
 };
 const IPRangeContext = createContext<IPRangeState>(
@@ -24,8 +24,11 @@ function IPProvider({ children }: IPRangeContextProps) {
 		getReport(dispatch, ReportName.IPRange);
 	}, []);
 
-	const { data, error, status } = state;
-	const value = useMemo(() => ({ data, error, status }), [data, error, status]);
+	const { data, error, isLoading } = state;
+	const value = useMemo(
+		() => ({ data, error, isLoading }),
+		[data, error, isLoading]
+	);
 
 	return (
 		<IPRangeContext.Provider value={value}>{children}</IPRangeContext.Provider>

@@ -6,7 +6,11 @@ export type IPRangeContextProps = {
 export type IPRangeState = {
 	data: IPRangeResponse;
 	error: null;
-	status: string;
+	isLoading: Boolean;
+};
+
+export type IPRangePayloadType = {
+	[key: string]: IPRangeResponse;
 };
 
 type IPRangeResponse = {

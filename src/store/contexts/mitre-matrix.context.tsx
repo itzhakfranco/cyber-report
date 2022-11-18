@@ -4,12 +4,12 @@ import {
 	MitreMatrixContextProps,
 	MitreMatrixState,
 } from "ts/types/mitre-matrix.types";
-import { ReportName, Status } from "ts/enums/Report.enum";
+import { ReportName } from "ts/enums/Report.enum";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";
 
 const defaultState: MitreMatrixState = {
-	status: Status.idle,
+	isLoading: true,
 	data: {
 		mitreMatrixData: [],
 	},
@@ -27,8 +27,11 @@ function MitreMatrixProvider({ children }: MitreMatrixContextProps) {
 		getReport(dispatch, ReportName.MITRE_MATRIX);
 	}, []);
 
-	const { data, error, status } = state;
-	const value = useMemo(() => ({ data, error, status }), [data, error, status]);
+	const { data, error, isLoading } = state;
+	const value = useMemo(
+		() => ({ data, error, isLoading }),
+		[data, error, isLoading]
+	);
 
 	return (
 		<MitreMatrixContext.Provider value={value}>

@@ -4,13 +4,13 @@ import {
 	ExecutiveContextProps,
 	ExecutiveState,
 } from "ts/types/executive.types";
-import { ReportName, Status } from "ts/enums/Report.enum";
+import { ReportName } from "ts/enums/Report.enum";
 import { reportReducer } from "store/reducers/report.reducer";
 import { getReport } from "store/actions/report.action";
 
 const defaultState: ExecutiveState = {
 	error: null,
-	status: Status.idle,
+	isLoading: true,
 	data: {
 		name: "",
 		description: "",
@@ -33,8 +33,11 @@ export function ExecutiveProvider({ children }: ExecutiveContextProps) {
 		getReport(dispatch, ReportName.EXECUTIVE);
 	}, []);
 
-	const { data, error, status } = state;
-	const value = useMemo(() => ({ data, error, status }), [data, error, status]);
+	const { data, error, isLoading } = state;
+	const value = useMemo(
+		() => ({ data, error, isLoading }),
+		[data, error, isLoading]
+	);
 
 	return (
 		<ExecutiveContext.Provider value={value}>

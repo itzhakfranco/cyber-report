@@ -6,12 +6,18 @@ type ResilienceScoreCard = {
 	id: string;
 	description: string;
 };
-export interface ExecutiveState {
+
+export type ExecutiveState = {
 	data: ExecutiveResponse;
 	error: null;
-	status: string;
-}
-type ExecutiveResponse = {
+	isLoading: Boolean;
+};
+
+export type ExecutivePayloadType = {
+	[key: string]: ExecutiveResponse;
+};
+
+export type ExecutiveResponse = {
 	name: string;
 	description: string;
 	type: string;
