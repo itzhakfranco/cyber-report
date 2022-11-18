@@ -1,12 +1,11 @@
-import { useReducer, useEffect, useMemo, createContext } from "react";
+import { useMemo, createContext } from "react";
 
 import {
 	ExecutiveContextProps,
 	ExecutiveState,
 } from "ts/types/executive.types";
 import { ReportName } from "ts/enums/Report.enum";
-import { reportReducer } from "store/reducers/report.reducer";
-import { getReport } from "store/actions/report.action";
+import useFetch from "hooks/useFetch";
 
 const defaultState: ExecutiveState = {
 	error: null,
@@ -27,13 +26,8 @@ export const ExecutiveContext = createContext<ExecutiveState>(
 ExecutiveContext.displayName = ReportName.EXECUTIVE;
 
 export function ExecutiveProvider({ children }: ExecutiveContextProps) {
-	const [state, dispatch] = useReducer(reportReducer, defaultState);
+	const [data, error, isLoading] = useFetch(ReportName.EXECUTIVE, defaultState);
 
-	useEffect(() => {
-		getReport(dispatch, ReportName.EXECUTIVE);
-	}, []);
-
-	const { data, error, isLoading } = state;
 	const value = useMemo(
 		() => ({ data, error, isLoading }),
 		[data, error, isLoading]

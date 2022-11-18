@@ -1,12 +1,11 @@
-import { useReducer, useEffect, useMemo, createContext } from "react";
+import { useMemo, createContext } from "react";
 
 import {
 	TestingScenarioContextProps,
 	TestingScenarioState,
 } from "ts/types/testing-scenario.types";
 import { ReportName } from "ts/enums/Report.enum";
-import { reportReducer } from "store/reducers/report.reducer";
-import { getReport } from "store/actions/report.action";
+import useFetch from "hooks/useFetch";
 
 const defaultState: TestingScenarioState = {
 	data: {
@@ -21,13 +20,11 @@ const TestingScenarioContext = createContext<TestingScenarioState>(
 TestingScenarioContext.displayName = ReportName.TESTING_SCENARIO;
 
 function TestingScenarioProvider({ children }: TestingScenarioContextProps) {
-	const [state, dispatch] = useReducer(reportReducer, defaultState);
+	const [data, error, isLoading] = useFetch(
+		ReportName.TESTING_SCENARIO,
+		defaultState
+	);
 
-	useEffect(() => {
-		getReport(dispatch, ReportName.TESTING_SCENARIO);
-	}, []);
-
-	const { data, error, isLoading } = state;
 	const value = useMemo(
 		() => ({ data, error, isLoading }),
 		[data, error, isLoading]
