@@ -1,15 +1,14 @@
-import { useReducer, useEffect, useMemo, createContext } from "react";
+import { useMemo, createContext } from "react";
 
 import {
 	MitreMatrixContextProps,
 	MitreMatrixState,
 } from "ts/types/mitre-matrix.types";
-import { ReportName, Status } from "ts/enums/Report.enum";
-import { reportReducer } from "store/reducers/report.reducer";
-import { getReport } from "store/actions/report.action";
+import { ReportName } from "ts/enums/Report.enum";
+import useFetch from "hooks/useFetch";
 
 const defaultState: MitreMatrixState = {
-	status: Status.idle,
+	isLoading: true,
 	data: {
 		mitreMatrixData: [],
 	},
@@ -21,14 +20,15 @@ const MitreMatrixContext = createContext<MitreMatrixState>(
 MitreMatrixContext.displayName = ReportName.MITRE_MATRIX;
 
 function MitreMatrixProvider({ children }: MitreMatrixContextProps) {
-	const [state, dispatch] = useReducer(reportReducer, defaultState);
+	const [data, error, isLoading] = useFetch(
+		ReportName.MITRE_MATRIX,
+		defaultState
+	);
 
-	useEffect(() => {
-		getReport(dispatch, ReportName.MITRE_MATRIX);
-	}, []);
-
-	const { data, error, status } = state;
-	const value = useMemo(() => ({ data, error, status }), [data, error, status]);
+	const value = useMemo(
+		() => ({ data, error, isLoading }),
+		[data, error, isLoading]
+	);
 
 	return (
 		<MitreMatrixContext.Provider value={value}>

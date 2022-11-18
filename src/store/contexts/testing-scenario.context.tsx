@@ -1,18 +1,17 @@
-import { useReducer, useEffect, useMemo, createContext } from "react";
+import { useMemo, createContext } from "react";
 
 import {
 	TestingScenarioContextProps,
 	TestingScenarioState,
 } from "ts/types/testing-scenario.types";
-import { ReportName, Status } from "ts/enums/Report.enum";
-import { reportReducer } from "store/reducers/report.reducer";
-import { getReport } from "store/actions/report.action";
+import { ReportName } from "ts/enums/Report.enum";
+import useFetch from "hooks/useFetch";
 
 const defaultState: TestingScenarioState = {
-	status: Status.idle,
 	data: {
 		testingScenarioData: [],
 	},
+	isLoading: true,
 	error: null,
 };
 const TestingScenarioContext = createContext<TestingScenarioState>(
@@ -21,14 +20,15 @@ const TestingScenarioContext = createContext<TestingScenarioState>(
 TestingScenarioContext.displayName = ReportName.TESTING_SCENARIO;
 
 function TestingScenarioProvider({ children }: TestingScenarioContextProps) {
-	const [state, dispatch] = useReducer(reportReducer, defaultState);
+	const [data, error, isLoading] = useFetch(
+		ReportName.TESTING_SCENARIO,
+		defaultState
+	);
 
-	useEffect(() => {
-		getReport(dispatch, ReportName.TESTING_SCENARIO);
-	}, []);
-
-	const { data, error, status } = state;
-	const value = useMemo(() => ({ data, error, status }), [data, error, status]);
+	const value = useMemo(
+		() => ({ data, error, isLoading }),
+		[data, error, isLoading]
+	);
 
 	return (
 		<TestingScenarioContext.Provider value={value}>

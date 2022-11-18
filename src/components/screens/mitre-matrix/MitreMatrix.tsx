@@ -9,9 +9,8 @@ import PageHeader from "components/common/page-header/PageHeader";
 import useMitreMatrix from "hooks/useMitreMatrix";
 
 const MitreMatrix: React.FC = () => {
-	const {
-		data: { mitreMatrixData },
-	} = useMitreMatrix();
+	const { data } = useMitreMatrix();
+	const mitreMatrixData = data?.mitreMatrixData || [];
 
 	return (
 		<ScreenTemplate>

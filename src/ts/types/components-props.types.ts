@@ -1,69 +1,64 @@
-export interface IPropsTableBody {
-	children: JSX.Element | React.ReactNode;
-}
+import { ReactNode, PropsWithChildren, JSXElementConstructor } from "react";
 
-export interface IPropsTableBodyCell {
-	children: JSX.Element | React.ReactNode | string | number | HTMLElement;
-}
-export interface IPropsTableHead {
-	children: JSX.Element | React.ReactNode;
-}
+export type IPropsTableBody = {
+	children: JSX.Element | ReactNode;
+};
 
-export interface IPropsTableRow {
-	children?: JSX.Element | React.ReactNode | HTMLElement;
-}
+export type IPropsTableBodyCell = {
+	children: JSX.Element | ReactNode | string | number | HTMLElement;
+};
+export type IPropsTableHead = {
+	children: JSX.Element | ReactNode;
+};
 
-export interface IPropsTableHeadCell {
-	children: JSX.Element | React.ReactNode | string | number | HTMLElement;
-}
+export type IPropsTableRow = {
+	children?: JSX.Element | ReactNode | HTMLElement;
+};
 
-export interface IPropsTable {
-	children: JSX.Element | React.ReactNode;
-}
+export type IPropsTableHeadCell = {
+	children: JSX.Element | ReactNode | string | number | HTMLElement;
+};
 
-export interface IPropsListRow {
+export type IPropsTable = {
+	children: JSX.Element | ReactNode;
+};
+
+export type IPropsListRow = {
 	groupList: any;
 	groupType: string;
-}
+};
 
-export interface IPropsIndicator {
+export type IPropsIndicator = {
 	score: number;
-}
+};
 
-export interface IPropsDragTableContainer {
-	children: React.ReactNode[] | React.ReactNode;
-}
+export type IPropsDragTableContainer = {
+	children: ReactNode[] | ReactNode;
+};
 
-export interface IPropsDragTableColumn {
-	children: React.ReactNode[] | React.ReactNode;
+export type IPropsDragTableColumn = {
+	children: ReactNode[] | ReactNode;
 	colName: string;
-}
+};
 
-export interface IPropsDragItem {
+export type IPropsDragItem = {
 	id: string;
 	taskId: string;
 	taskName: string;
 	taskDescription: string;
-}
+};
 
-export interface IPropsPageHeader {
+export type IPropsPageHeader = {
 	children?: string | number;
-}
+};
 
-export interface IReportContext {
-	status: "idle" | "pending" | "resolved" | "rejected";
+export type IReportContext = {
+	isLoading: Boolean;
 	data: [];
 	error: null;
-	getData?: () => void;
-}
+};
 
-export interface IContexDefaultlState {
-	status: string;
-	data: null;
-	error: null;
-}
-
-export interface IPropsCompose {
-	components: Array<React.JSXElementConstructor<React.PropsWithChildren<any>>>;
-	children: React.ReactNode;
-}
+export type IPropsCompose = {
+	components: Array<JSXElementConstructor<PropsWithChildren<any>>>;
+	children: ReactNode;
+};

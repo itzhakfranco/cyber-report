@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 import { TestingScenarioStyled } from "./TestingScenario.styled";
 import Table from "components/common/table/Table";
 import TableHead from "components/common/table/TableHead";
@@ -8,18 +9,14 @@ import TableHeadCell from "components/common/table/TableHeadCell";
 import TableBodyCell from "components/common/table/TableBodyCell";
 import ScreenTemplate from "components/templates/screen-template/ScreenTemplate";
 import ListRow from "components/common/list-row/ListRow";
-import { Status } from "ts/enums/Report.enum";
 import useTestingScenario from "hooks/useTestingSernerio";
 import PageHeader from "components/common/page-header/PageHeader";
 
 const TestingScenario: React.FC = () => {
-	const {
-		status,
-		data: { testingScenarioData },
-	} = useTestingScenario();
+	const { isLoading, data } = useTestingScenario();
+	const testingScenarioData = data?.testingScenarioData || [];
 
-	if (status === Status.pending || status === Status.idle)
-		return <h1>Loading</h1>;
+	if (isLoading) return <h1>Loading</h1>;
 
 	return (
 		<ScreenTemplate>

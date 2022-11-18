@@ -3,14 +3,15 @@ import axios, {
 	AxiosRequestHeaders,
 	AxiosInstance,
 } from "axios";
-import { apiURL, unAuthHeaders } from "../configs/config";
 import { IHttpService } from "ts/interfaces/Report.interface";
 
 class HttpService implements IHttpService {
 	private httpModule: AxiosInstance = axios;
 	public baseURL: string = "http://localhost:3000/mock-data";
 
-	private headers: AxiosRequestHeaders = unAuthHeaders;
+	private headers: AxiosRequestHeaders = {
+		"Content-Type": "application/json",
+	};
 
 	public get(url: string) {
 		return this.httpModule.get(`${this.baseURL}/${url}`, {

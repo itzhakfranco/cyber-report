@@ -1,14 +1,9 @@
 export enum ReportActions {
-	FETCH_SUCCESS = "FETCH_SUCCESS",
-	FETCH_REPORT = "FETCH_REPORT",
-	FETCH_FAILURE = "FETCH_FAILURE",
+	RESPONSE_COMPLETE = "RESPONSE_COMPLETE",
+	RESPONSE_REJECTED = "RESPONSE_REJECTED",
+	SET_LOADING = "SET_LOADING",
 }
-export enum Status {
-	idle = "idle",
-	pending = "pending",
-	resolved = "resolved",
-	rejected = "rejected",
-}
+
 export enum ReportName {
 	EXECUTIVE = "executive",
 	IPRange = "ip-range",
@@ -17,5 +12,5 @@ export enum ReportName {
 }
 
 export enum ReportText {
-	APPBAR_TITLE = "APPBAR_TITLE",
+	APPBAR_TITLE = "Cyber Report",
 }

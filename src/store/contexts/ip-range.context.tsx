@@ -1,15 +1,14 @@
-import { useReducer, useMemo, createContext, useEffect } from "react";
+import { useMemo, createContext } from "react";
 
-import { ReportName, Status } from "ts/enums/Report.enum";
+import { ReportName } from "ts/enums/Report.enum";
 import { IPRangeContextProps, IPRangeState } from "ts/types/ip-range.types";
-import { reportReducer } from "store/reducers/report.reducer";
-import { getReport } from "store/actions/report.action";
+import useFetch from "hooks/useFetch";
 
 const defaultState: IPRangeState = {
 	data: {
 		ipRangeData: [],
 	},
-	status: Status.idle,
+	isLoading: true,
 	error: null,
 };
 const IPRangeContext = createContext<IPRangeState>(
@@ -18,14 +17,12 @@ const IPRangeContext = createContext<IPRangeState>(
 IPRangeContext.displayName = ReportName.IPRange;
 
 function IPProvider({ children }: IPRangeContextProps) {
-	const [state, dispatch] = useReducer(reportReducer, defaultState);
+	const [data, error, isLoading] = useFetch(ReportName.IPRange, defaultState);
 
-	useEffect(() => {
-		getReport(dispatch, ReportName.IPRange);
-	}, []);
-
-	const { data, error, status } = state;
-	const value = useMemo(() => ({ data, error, status }), [data, error, status]);
+	const value = useMemo(
+		() => ({ data, error, isLoading }),
+		[data, error, isLoading]
+	);
 
 	return (
 		<IPRangeContext.Provider value={value}>{children}</IPRangeContext.Provider>

@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export type TestingScenarioContextProps = {
 	children?: ReactNode;
 };
-type GroupData = {
+export type GroupData = {
 	key: string;
 	values: any;
 };
@@ -14,6 +14,10 @@ type TestingScenarioData = {
 	groupData: GroupData[];
 };
 
+export type TestingScenarioPayloadType = {
+	[key: string]: TestingScenarioResponse;
+};
+
 type TestingScenarioResponse = {
 	testingScenarioData: TestingScenarioData[];
 };
@@ -21,5 +25,5 @@ type TestingScenarioResponse = {
 export type TestingScenarioState = {
 	data: TestingScenarioResponse;
 	error: null;
-	status: string;
+	isLoading: Boolean;
 };
