@@ -14,11 +14,7 @@ type TestingScenarioData = {
 	groupData: GroupData[];
 };
 
-export type TestingScenarioPayloadType = {
-	[key: string]: TestingScenarioResponse;
-};
-
-type TestingScenarioResponse = {
+export type TestingScenarioResponse = {
 	testingScenarioData: TestingScenarioData[];
 };
 

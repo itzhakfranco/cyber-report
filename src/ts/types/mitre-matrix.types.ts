@@ -10,11 +10,7 @@ export type MitreMatrixState = {
 	isLoading: Boolean;
 };
 
-export type MitreMatrixPayloadType = {
-	[key: string]: MitreMatrixResponse;
-};
-
-type MitreMatrixResponse = {
+export type MitreMatrixResponse = {
 	mitreMatrixData: mitreMatrixData[] | [];
 };
 

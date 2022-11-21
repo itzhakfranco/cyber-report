@@ -9,10 +9,6 @@ export type IPRangeState = {
 	isLoading: Boolean;
 };
 
-export type IPRangePayloadType = {
-	[key: string]: IPRangeResponse;
-};
-
-type IPRangeResponse = {
+export type IPRangeResponse = {
 	[key: string]: string[] | [];
 };

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { AxiosResponse, AxiosError } from "axios";
 
 type ResilienceScoreCard = {
 	score: number;
@@ -9,15 +10,11 @@ type ResilienceScoreCard = {
 
 export type ExecutiveState = {
 	data: ExecutiveResponse;
-	error: null;
+	error: null | AxiosError;
 	isLoading: Boolean;
 };
 
-export type ExecutivePayloadType = {
-	[key: string]: ExecutiveResponse;
-};
-
-export type ExecutiveResponse = {
+type ExecutiveResponse = {
 	name: string;
 	description: string;
 	type: string;
